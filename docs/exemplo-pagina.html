@@ -1,0 +1,149 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Punta Cana 2027 · Radar de passagens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--fundo:#f4f8f7;--papel:#fff;--tinta:#13283a;--suave:#64748b;--linha:#e3eae9;
+  --c1:#ff7a45;--c2:#0e9aa7;--verde:#16a34a;--verm:#dc2626;--amar:#d97706;--sol:#ffd166;
+  --sombra:0 1px 2px rgba(19,40,58,.05),0 10px 30px rgba(19,40,58,.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--fundo:#0d1820;--papel:#14232d;--tinta:#eef4f6;
+  --suave:#94a3b8;--linha:#24343f;--c1:#ff9466;--c2:#3cc6cf;--verde:#4ade80;--verm:#f87171;--amar:#fbbf24;--sombra:none}}
+*{box-sizing:border-box}body{margin:0;background:var(--fundo);color:var(--tinta);font:15px/1.55 Inter,system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 48px}
+.topo{background:linear-gradient(160deg,#0e9aa7 0%,#11b5b0 45%,#ffb26b 100%);color:#fff;text-align:center;padding:40px 16px 70px;
+  border-radius:0 0 32px 32px;position:relative;overflow:hidden}
+.topo:after{content:"🌴";position:absolute;font-size:150px;right:-20px;bottom:-30px;opacity:.18}
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:12px;opacity:.9}
+h1{font:800 clamp(34px,8vw,56px)/1.05 Fraunces,Georgia,serif;margin:8px 0 2px}
+.sub{font:italic 600 18px Fraunces,serif;opacity:.95}
+.rota{margin:14px 0 4px;font-weight:600;font-size:15px}
+.contagem{display:inline-block;margin-top:14px;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.22);backdrop-filter:blur(4px);font-weight:600}
+.alerta{background:var(--verde);color:#fff;border-radius:16px;padding:16px 18px;font-weight:600;margin:-40px 0 16px;position:relative;box-shadow:var(--sombra)}
+.card{background:var(--papel);border:1px solid var(--linha);border-radius:20px;padding:22px;box-shadow:var(--sombra);margin-bottom:16px}
+.sobe-topo{margin-top:-40px;position:relative}
+.alerta+.sobe-topo{margin-top:0}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:center}
+.rot{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--suave)}
+.preco{font:800 clamp(40px,9vw,60px)/1 Fraunces,serif;margin:8px 0 4px}.preco small{font:500 16px Inter;color:var(--suave);margin-left:4px}
+.delta{font-weight:600;color:var(--suave)}.delta.desce{color:var(--verde)}.delta.sobe{color:var(--verm)}
+.veredito{border-radius:16px;padding:18px}.veredito h2{font:700 22px/1.2 Fraunces,serif;margin:0 0 6px}.veredito p{margin:0;font-size:14px}
+.alerta-bg{background:color-mix(in srgb,var(--verde) 16%,transparent)}.bom-bg{background:color-mix(in srgb,var(--c2) 15%,transparent)}
+.ok-bg{background:color-mix(in srgb,var(--amar) 15%,transparent)}.caro-bg{background:color-mix(in srgb,var(--verm) 12%,transparent)}
+h2.sec{font:700 24px Fraunces,serif;margin:30px 0 12px}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.per{border-top:5px solid var(--cor);margin:0}.per header{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.per h3{font:700 18px Fraunces,serif;margin:0}.bolinha{width:10px;height:10px;border-radius:50%;background:var(--cor)}
+.selo{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--cor);color:#fff;white-space:nowrap}
+.pp{font:800 36px Fraunces,serif;margin:10px 0 0}.pp small{font:500 14px Inter;color:var(--suave);margin-left:3px}
+.tot{font-size:13px;color:var(--suave)}
+.badge{display:inline-block;margin:12px 0 4px;padding:5px 12px;border-radius:10px;font-weight:600;font-size:14px}
+.badge.alerta{background:color-mix(in srgb,var(--verde) 18%,transparent);color:var(--verde)}
+.badge.bom{background:color-mix(in srgb,var(--c2) 16%,transparent);color:var(--c2)}
+.badge.ok{background:color-mix(in srgb,var(--amar) 16%,transparent);color:var(--amar)}
+.badge.caro{background:color-mix(in srgb,var(--verm) 13%,transparent);color:var(--verm)}
+dl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 0}dt{font-size:12px;color:var(--suave)}dd{margin:0;font-weight:600}
+dd small,td small{color:var(--suave);font-weight:400}
+.nota{font-size:12.5px;color:var(--suave);margin:10px 0 0}
+.legenda{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;margin-bottom:8px}.legenda i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.li-zona{background:color-mix(in srgb,var(--verde) 35%,transparent)!important;height:10px!important}
+svg{width:100%;height:auto;display:block}.g{stroke:var(--linha)}.eixo{fill:var(--suave);font-size:11px}
+.linha{stroke-width:3;stroke-linejoin:round;stroke-linecap:round}.ponto{stroke:var(--papel);stroke-width:3}
+.zona{fill:var(--verde);opacity:.1}.zona-t{fill:var(--verde);font-size:11px;font-weight:600}
+.m-bom,.m-ok{stroke:var(--suave);stroke-dasharray:5 5;stroke-width:1}.m-bom-t,.m-ok-t{fill:var(--suave);font-size:11px}
+.tab{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:right;font-size:13px;padding:8px}
+td{padding:10px 8px;border-top:1px solid var(--linha);text-align:right}td:first-child,th:first-child{text-align:left;color:var(--suave)}
+.prevs{display:grid;grid-template-columns:1fr 1fr;gap:14px}.prev{border-left:4px solid var(--cor);padding:4px 0 4px 14px}
+.prev-v{font:800 30px Fraunces,serif;margin:4px 0}
+.janela{background:color-mix(in srgb,var(--sol) 25%,transparent);border-radius:12px;padding:12px 14px;margin:16px 0 0}
+.voos h4{font:700 17px Fraunces,serif;margin:6px 0 4px}.voos+.voos{margin-top:22px}
+.voos ul{list-style:none;margin:0;padding:0}.voos li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px 0;border-top:1px solid var(--linha)}
+.v-cia{font-weight:600}.v-inf{grid-row:2;font-size:13px;color:var(--suave)}.v-p{grid-row:1/3;grid-column:2;text-align:right;font:700 18px Fraunces,serif;align-self:center}
+.v-p small{display:block;font:400 12px Inter;color:var(--suave)}
+.ok-h,.no-h{font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;margin-left:6px;white-space:nowrap}
+.ok-h{background:color-mix(in srgb,var(--verde) 16%,transparent);color:var(--verde)}.no-h{background:var(--linha);color:var(--suave)}
+.btn{display:block;text-align:center;margin-top:12px;padding:11px;border-radius:12px;background:var(--c2);color:#fff;text-decoration:none;font-weight:600}
+.geral p{margin:0 0 10px}
+footer{text-align:center;color:var(--suave);font-size:12px;margin-top:28px}footer a{color:inherit}
+@media (max-width:620px){.hero,.duas,.prevs{grid-template-columns:1fr}
+  .eixo,.zona-t,.m-bom-t,.m-ok-t{font-size:20px}.linha{stroke-width:5}}
+</style></head><body>
+<div class="topo">
+  <div class="kicker">Radar de passagens · atualizado quinta, 26 de nov de 2026</div>
+  <h1>Punta Cana 2027</h1>
+  <div class="sub">Hard Rock Hotel &amp; Casino</div>
+  <div class="rota">GRU ✈ PUJ · ida e volta · 6 viajantes · econômica</div>
+  <div class="contagem">Faltam 235 dias 🌊</div>
+</div>
+<div class="wrap">
+
+<section class="card hero sobe-topo">
+  <div><div class="rot">Melhor preço hoje · 26 a 30 de julho</div>
+    <div class="preco" style="color:var(--c2)">R$ 4.476<small>por pessoa</small></div>
+    <div class="tot">R$ 26.856 para os 6 · <span class="delta desce">▼ R$ 94 (2,1%) vs. ontem</span></div></div>
+  <div class="veredito bom-bg"><h2>Preço bom 👍</h2><p>Abaixo de R$ 4.500 por pessoa. Bom preço para julho no Caribe.</p></div>
+</section>
+
+<h2 class="sec">As duas datas, lado a lado</h2>
+<div class="duas"><article class="card per" style="--cor:var(--c1)">
+  <header><span class="bolinha"></span><h3>19 a 23 de julho</h3></header>
+  <div class="pp">R$ 4.789<small>/pessoa</small></div>
+  <div class="tot">R$ 28.734 no total · <span class="delta desce">▼ R$ 97 (2,0%) vs. ontem</span></div>
+  <div class="badge ok">Dentro do orçamento 🙂</div>
+  <dl>
+    <div><dt>Menor já visto</dt><dd>R$ 4.385 <small>27 out</small></dd></div>
+    <div><dt>Tendência</dt><dd>Tendência de queda 📉</dd></div>
+  </dl>
+</article><article class="card per" style="--cor:var(--c2)">
+  <header><span class="bolinha"></span><h3>26 a 30 de julho</h3><span class="selo">mais barato hoje</span></header>
+  <div class="pp">R$ 4.476<small>/pessoa</small></div>
+  <div class="tot">R$ 26.856 no total · <span class="delta desce">▼ R$ 94 (2,1%) vs. ontem</span></div>
+  <div class="badge bom">Preço bom 👍</div>
+  <dl>
+    <div><dt>Menor já visto</dt><dd>R$ 4.084 <small>14 nov</small></dd></div>
+    <div><dt>Tendência</dt><dd>Tendência de alta 📈</dd></div>
+  </dl>
+</article></div>
+
+<h2 class="sec">Como o preço andou</h2>
+<section class="card"><div class="legenda"><span><i style="background:var(--c1)"></i>19 a 23 de julho</span><span><i style="background:var(--c2)"></i>26 a 30 de julho</span><span><i class="li-zona"></i>perto de R$ 4.000</span></div><svg viewBox="0 0 760 300" role="img" aria-label="Preço por pessoa ao longo do tempo"><line x1="70" x2="746" y1="272.0" y2="272.0" class="g"/><text x="60" y="276.0" class="eixo" text-anchor="end">3,8k</text><line x1="70" x2="746" y1="211.0" y2="211.0" class="g"/><text x="60" y="215.0" class="eixo" text-anchor="end">4,3k</text><line x1="70" x2="746" y1="150.0" y2="150.0" class="g"/><text x="60" y="154.0" class="eixo" text-anchor="end">4,7k</text><line x1="70" x2="746" y1="89.0" y2="89.0" class="g"/><text x="60" y="93.0" class="eixo" text-anchor="end">5,2k</text><line x1="70" x2="746" y1="28.0" y2="28.0" class="g"/><text x="60" y="32.0" class="eixo" text-anchor="end">5,7k</text><rect x="70" y="220.6" width="676" height="51.4" class="zona"/><text x="78" y="264" class="zona-t">zona de alerta</text><line x1="70" x2="746" y1="182.0" y2="182.0" class="m-bom"/><text x="744" y="176.0" class="m-bom-t" text-anchor="end">R$ 4.500</text><line x1="70" x2="746" y1="117.7" y2="117.7" class="m-ok"/><text x="744" y="111.7" class="m-ok-t" text-anchor="end">R$ 5.000</text><text x="70.0" y="294" class="eixo" text-anchor="middle">18 out</text><text x="174.0" y="294" class="eixo" text-anchor="middle">24 out</text><text x="278.0" y="294" class="eixo" text-anchor="middle">30 out</text><text x="382.0" y="294" class="eixo" text-anchor="middle">5 nov</text><text x="486.0" y="294" class="eixo" text-anchor="middle">11 nov</text><text x="590.0" y="294" class="eixo" text-anchor="middle">17 nov</text><text x="694.0" y="294" class="eixo" text-anchor="middle">23 nov</text><polyline points="70.0,134.1 87.3,70.2 104.7,174.8 122.0,130.7 139.3,165.7 156.7,166.3 174.0,178.4 191.3,181.1 208.7,173.7 226.0,196.8 243.3,180.2 260.7,164.3 278.0,185.9 295.3,170.6 312.7,133.3 330.0,99.0 347.3,119.0 364.7,168.8 382.0,156.7 399.3,135.2 416.7,125.1 434.0,61.3 451.3,128.9 468.7,107.1 486.0,103.7 503.3,114.0 520.7,79.4 538.0,114.6 555.3,57.0 572.7,49.3 590.0,59.0 607.3,61.9 624.7,99.9 642.0,64.1 659.3,120.8 676.7,93.7 694.0,124.0 711.3,132.0 728.7,132.4 746.0,144.9" fill="none" stroke="var(--c1)" class="linha"/><circle cx="746.0" cy="144.9" r="6" fill="var(--c1)" class="ponto"/><polyline points="70.0,145.6 87.3,230.7 104.7,177.4 122.0,198.8 139.3,188.2 156.7,189.3 174.0,181.9 191.3,165.7 208.7,181.5 226.0,159.3 243.3,138.4 260.7,159.4 278.0,143.3 295.3,107.4 312.7,77.1 330.0,105.5 347.3,163.6 364.7,160.9 382.0,149.7 399.3,150.8 416.7,103.5 434.0,177.5 451.3,169.4 468.7,173.7 486.0,193.2 503.3,174.2 520.7,212.0 538.0,235.5 555.3,151.4 572.7,163.5 590.0,160.0 607.3,194.1 624.7,160.5 642.0,201.8 659.3,169.0 676.7,186.0 694.0,185.4 711.3,173.7 728.7,173.0 746.0,185.1" fill="none" stroke="var(--c2)" class="linha"/><circle cx="746.0" cy="185.1" r="6" fill="var(--c2)" class="ponto"/></svg>
+<p class="nota">Preço por pessoa, ida e volta, do voo mais barato que chega cedinho e volta à noite.</p></section>
+
+<h2 class="sec">Oscilações</h2>
+<section class="card"><div class="tab"><table><thead><tr><th></th><th style="color:var(--c1)">19 a 23 de julho</th><th style="color:var(--c2)">26 a 30 de julho</th></tr></thead><tbody><tr><td>Menor preço já visto</td><td>R$ 4.385 <small>(27 out)</small></td><td>R$ 4.084 <small>(14 nov)</small></td></tr><tr><td>Maior preço já visto</td><td>R$ 5.532 <small>(16 nov)</small></td><td>R$ 5.316 <small>(1 nov)</small></td></tr><tr><td>Média dos últimos 7 dias</td><td>R$ 5.014</td><td>R$ 4.500</td></tr><tr><td>Variação em 7 dias</td><td>-6,8%</td><td>-4,1%</td></tr><tr><td>Maior queda em um dia</td><td>-15,2% <small>(20 out)</small></td><td>-13,8% <small>(19 out)</small></td></tr><tr><td>Sobe e desce diário (média)</td><td>±5,4%</td><td>±5,6%</td></tr><tr><td>Dias na zona de alerta</td><td>0</td><td>2</td></tr></tbody></table></div></section>
+
+<h2 class="sec">Previsão</h2>
+<section class="card"><div class="prevs"><div class="prev" style="--cor:var(--c1)"><div class="rot">19 a 23 de julho · daqui a 7 dias</div>
+  <div class="prev-v">≈ R$ 4.585</div><div class="nota" style="margin:0">provável entre R$ 4.287 e R$ 4.883 · Tendência de queda 📉</div></div><div class="prev" style="--cor:var(--c2)"><div class="rot">26 a 30 de julho · daqui a 7 dias</div>
+  <div class="prev-v">≈ R$ 4.634</div><div class="nota" style="margin:0">provável entre R$ 4.427 e R$ 4.841 · Tendência de alta 📈</div></div></div>
+<p class="janela">🗓️ Ainda é cedo. Para o Caribe em julho (férias escolares), os preços costumam ficar estáveis até uns 4 a 5 meses antes. Dá para esperar uma boa queda com calma.</p>
+<p class="nota">Previsão estatística simples, feita com a tendência das últimas 2 semanas. Companhias aéreas mudam preços sem aviso, então use como termômetro, não como garantia.</p></section>
+
+<h2 class="sec">Melhores voos de hoje</h2>
+<section class="card"><div class="voos"><h4>19 a 23 de julho</h4><ul><li><div class="v-cia">Copa Airlines <span class="ok-h">✓ chega cedo</span></div>
+  <div class="v-inf">sai 18 jul 23:05 → chega 19 jul 10:25 · 1 escala · 13h50</div>
+  <div class="v-p">R$ 4.789<small>R$ 28.734 p/ 6</small></div></li><li><div class="v-cia">Avianca <span class="ok-h">✓ chega cedo</span></div>
+  <div class="v-inf">sai 18 jul 23:05 → chega 19 jul 05:40 · 1 escala · 10h15</div>
+  <div class="v-p">R$ 5.211<small>R$ 31.266 p/ 6</small></div></li><li><div class="v-cia">LATAM + Arajet <span class="ok-h">✓ chega cedo</span></div>
+  <div class="v-inf">sai 18 jul 20:05 → chega 19 jul 10:10 · 1 escala · 9h03</div>
+  <div class="v-p">R$ 5.248<small>R$ 31.488 p/ 6</small></div></li><li><div class="v-cia">Copa Airlines <span class="no-h">chega tarde</span></div>
+  <div class="v-inf">sai 18 jul 22:05 → chega 19 jul 14:10 · 1 escala · 9h26</div>
+  <div class="v-p">R$ 4.772<small>R$ 28.632 p/ 6</small></div></li><li><div class="v-cia">American <span class="no-h">chega tarde</span></div>
+  <div class="v-inf">sai 18 jul 23:50 → chega 19 jul 16:10 · 1 escala · 11h41</div>
+  <div class="v-p">R$ 5.481<small>R$ 32.886 p/ 6</small></div></li></ul></div><div class="voos"><h4>26 a 30 de julho</h4><ul><li><div class="v-cia">Copa Airlines <span class="ok-h">✓ chega cedo</span></div>
+  <div class="v-inf">sai 25 jul 18:50 → chega 26 jul 06:10 · 1 escala · 10h31</div>
+  <div class="v-p">R$ 4.476<small>R$ 26.856 p/ 6</small></div></li><li><div class="v-cia">Avianca <span class="ok-h">✓ chega cedo</span></div>
+  <div class="v-inf">sai 25 jul 20:30 → chega 26 jul 07:25 · 1 escala · 12h04</div>
+  <div class="v-p">R$ 5.201<small>R$ 31.206 p/ 6</small></div></li><li><div class="v-cia">GOL + Copa Airlines <span class="ok-h">✓ chega cedo</span></div>
+  <div class="v-inf">sai 25 jul 23:05 → chega 26 jul 07:40 · 1 escala · 11h45</div>
+  <div class="v-p">R$ 5.553<small>R$ 33.318 p/ 6</small></div></li><li><div class="v-cia">Copa Airlines <span class="no-h">chega tarde</span></div>
+  <div class="v-inf">sai 25 jul 22:05 → chega 26 jul 14:10 · 1 escala · 10h47</div>
+  <div class="v-p">R$ 4.689<small>R$ 28.134 p/ 6</small></div></li><li><div class="v-cia">LATAM + Arajet <span class="no-h">chega tarde</span></div>
+  <div class="v-inf">sai 25 jul 20:05 → chega 26 jul 14:25 · 1 escala · 10h23</div>
+  <div class="v-p">R$ 5.049<small>R$ 30.294 p/ 6</small></div></li></ul></div></section>
+
+<h2 class="sec">Resumo geral</h2>
+<section class="card geral"><p>Hoje a opção <b>26 a 30 de julho</b> está R$ 313 mais barata por pessoa (R$ 1.878 no total) que 19 a 23 de julho.</p><p>19 a 23 de julho: tendência de queda 📉, menor valor visto foi R$ 4.385 em 27 out.</p><p>26 a 30 de julho: tendência de alta 📈, menor valor visto foi R$ 4.084 em 14 nov.</p><p>Estamos acompanhando há 40 dias.</p></section>
+
+<footer>Atualizado automaticamente todo dia às 7h · preços do Google Flights, podem mudar na hora da compra ·
+<a href="historico.json">baixar histórico</a></footer>
+</div></body></html>

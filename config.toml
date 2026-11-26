@@ -1,0 +1,36 @@
+# ✈️ Configuração do radar — edite aqui e pronto.
+
+[viagem]
+nome      = "Punta Cana 2027"
+subtitulo = "Hard Rock Hotel & Casino"
+origem    = "BSB"          # Brasília
+destino   = "PUJ"          # Punta Cana
+adultos   = 6
+criancas  = 0
+classe    = "economica"    # economica | premium | executiva | primeira
+
+# As datas em estudo. "chegada" = dia em que queremos ESTAR em Punta Cana cedinho.
+[[periodos]]
+nome    = "19 a 23 de julho"
+chegada = "2027-07-19"
+volta   = "2027-07-23"
+
+[[periodos]]
+nome    = "26 a 30 de julho"
+chegada = "2027-07-26"
+volta   = "2027-07-30"
+
+[preferencias]
+chegar_ate     = 12   # chegar em Punta Cana até essa hora do dia da chegada
+voltar_a_partir = 17  # voo de volta saindo a partir dessa hora
+
+[metas]               # valores POR PESSOA, ida e volta (R$)
+alerta = 4000         # perto disso ou abaixo = ALERTA 🎉
+bom    = 4500
+ok     = 5000
+margem_alerta_pct = 5 # "perto" = até 5% acima do alerta (R$ 4.200)
+
+[busca]
+fonte = "serpapi"      # "serpapi" (Google Flights real) ou "demo"
+moeda = "BRL"
+preco_api_e_total = true  # o Google devolve o preço somando todos os passageiros

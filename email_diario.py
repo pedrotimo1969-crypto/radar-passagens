@@ -42,7 +42,8 @@ def corpo(cfg: dict, r: dict) -> str:
 
 
 def enviar(cfg: dict, r: dict) -> None:
-    usuario, senha, destino = (os.environ.get(k) for k in ("EMAIL_USUARIO", "EMAIL_SENHA_APP", "EMAIL_DESTINO"))
+    usuario, senha, destino = ((os.environ.get(k) or "").strip() for k in ("EMAIL_USUARIO", "EMAIL_SENHA_APP", "EMAIL_DESTINO"))
+    senha = senha.replace(" ", "")  # a senha de app do Google vem com espaços
     if not (usuario and senha and destino):
         print("Email não configurado; pulando envio.")
         return
@@ -53,7 +54,10 @@ def enviar(cfg: dict, r: dict) -> None:
     msg["Subject"], msg["From"], msg["To"] = assunto, f"Radar de Passagens <{usuario}>", destino
     msg.set_content("Seu leitor de email não mostra HTML. Veja a página do radar: " + os.environ.get("PAGINA_URL", ""))
     msg.add_alternative(corpo(cfg, r), subtype="html")
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as s:
-        s.login(usuario, senha)
-        s.send_message(msg)
-    print("Email enviado para", destino)
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as s:
+            s.login(usuario, senha)
+            s.send_message(msg)
+        print("Email enviado para", destino)
+    except Exception as e:  # o email falhar não pode impedir a página de ser atualizada
+        print(f"::warning::Falha ao enviar o email ({type(e).__name__}: {e}). Confira EMAIL_USUARIO e EMAIL_SENHA_APP.")

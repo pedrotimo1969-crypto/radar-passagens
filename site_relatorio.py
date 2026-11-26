@@ -262,6 +262,6 @@ def pagina(cfg: dict, hist: list, r: dict) -> str:
 <h2 class="sec">Resumo geral</h2>
 <section class="card geral">{resumo_geral(cfg, r)}</section>
 
-<footer>Atualizado automaticamente todo dia às 7h · preços do Google Flights, podem mudar na hora da compra ·
+<footer>Atualizado automaticamente todo dia às 8h · preços do Google Flights, podem mudar na hora da compra ·
 <a href="historico.json">baixar histórico</a></footer>
 </div></body></html>'''

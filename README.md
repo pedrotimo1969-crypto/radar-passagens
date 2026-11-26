@@ -1,6 +1,6 @@
 # 🌴 Radar de passagens · Punta Cana 2027
 
-Todo dia às 7h busca no Google Flights o preço das duas opções de data
+Todo dia às 8h busca no Google Flights o preço das duas opções de data
 (19–23/jul e 26–30/jul de 2027) para 6 pessoas, guarda o histórico,
 atualiza a página da família e manda um email. Para sozinho depois da viagem.
 

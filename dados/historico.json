@@ -160,5 +160,165 @@
     "link": "https://www.google.com/travel/flights?hl=pt-BR&gl=br&curr=BRL&tfs=CBwQAhoeEgoyMDI3LTA3LTI1agcIARIDQlNCcgcIARIDUFVKGiISCjIwMjctMDctMzBAEUgXagcIARIDUFVKcgcIARIDQlNCQAFAAUABQAFAAUABSAFwAZgBAQ&tfu=EgIIAQ"
    }
   }
+ },
+ {
+  "data": "2026-11-27",
+  "periodos": {
+   "19 a 23 de julho": {
+    "menor_pp": 4385,
+    "menor_encaixa_pp": 4385,
+    "opcoes": [
+     {
+      "pp": 4385,
+      "total": 26311,
+      "cias": [
+       "COPA"
+      ],
+      "escalas": 1,
+      "duracao_min": 1727,
+      "saida": "2027-07-18 08:00",
+      "chegada": "2027-07-19 11:47",
+      "encaixa": true
+     },
+     {
+      "pp": 11002,
+      "total": 66009,
+      "cias": [
+       "Avianca",
+       "Gol"
+      ],
+      "escalas": 2,
+      "duracao_min": 930,
+      "saida": "2027-07-18 20:55",
+      "chegada": "2027-07-19 11:25",
+      "encaixa": true
+     },
+     {
+      "pp": 14855,
+      "total": 89130,
+      "cias": [
+       "American",
+       "Gol"
+      ],
+      "escalas": 2,
+      "duracao_min": 975,
+      "saida": "2027-07-18 19:45",
+      "chegada": "2027-07-19 11:00",
+      "encaixa": true
+     },
+     {
+      "pp": 35749,
+      "total": 214493,
+      "cias": [
+       "COPA"
+      ],
+      "escalas": 1,
+      "duracao_min": 613,
+      "saida": "2027-07-19 00:15",
+      "chegada": "2027-07-19 09:28",
+      "encaixa": true
+     },
+     {
+      "pp": 4385,
+      "total": 26311,
+      "cias": [
+       "COPA"
+      ],
+      "escalas": 1,
+      "duracao_min": 1077,
+      "saida": "2027-07-18 00:15",
+      "chegada": "2027-07-18 17:12",
+      "encaixa": false
+     },
+     {
+      "pp": 4385,
+      "total": 26311,
+      "cias": [
+       "COPA"
+      ],
+      "escalas": 1,
+      "duracao_min": 1011,
+      "saida": "2027-07-19 00:15",
+      "chegada": "2027-07-19 16:06",
+      "encaixa": false
+     }
+    ],
+    "nivel": null,
+    "faixa_pp": null,
+    "link": "https://www.google.com/travel/flights?hl=pt-BR&gl=br&curr=BRL&tfs=CBwQAhoeEgoyMDI3LTA3LTE4agcIARIDQlNCcgcIARIDUFVKGiISCjIwMjctMDctMjNAEUgXagcIARIDUFVKcgcIARIDQlNCQAFAAUABQAFAAUABSAFwAZgBAQ&tfu=EgIIAQ"
+   },
+   "26 a 30 de julho": {
+    "menor_pp": 4385,
+    "menor_encaixa_pp": 6010,
+    "opcoes": [
+     {
+      "pp": 6010,
+      "total": 36058,
+      "cias": [
+       "Avianca",
+       "Gol"
+      ],
+      "escalas": 2,
+      "duracao_min": 955,
+      "saida": "2027-07-25 20:30",
+      "chegada": "2027-07-26 11:25",
+      "encaixa": true
+     },
+     {
+      "pp": 7268,
+      "total": 43605,
+      "cias": [
+       "Avianca",
+       "Gol"
+      ],
+      "escalas": 2,
+      "duracao_min": 930,
+      "saida": "2027-07-25 20:55",
+      "chegada": "2027-07-26 11:25",
+      "encaixa": true
+     },
+     {
+      "pp": 14855,
+      "total": 89130,
+      "cias": [
+       "American",
+       "Gol"
+      ],
+      "escalas": 2,
+      "duracao_min": 975,
+      "saida": "2027-07-25 19:45",
+      "chegada": "2027-07-26 11:00",
+      "encaixa": true
+     },
+     {
+      "pp": 4385,
+      "total": 26311,
+      "cias": [
+       "COPA"
+      ],
+      "escalas": 1,
+      "duracao_min": 882,
+      "saida": "2027-07-25 00:15",
+      "chegada": "2027-07-25 13:57",
+      "encaixa": false
+     },
+     {
+      "pp": 4385,
+      "total": 26311,
+      "cias": [
+       "COPA"
+      ],
+      "escalas": 1,
+      "duracao_min": 882,
+      "saida": "2027-07-26 00:15",
+      "chegada": "2027-07-26 13:57",
+      "encaixa": false
+     }
+    ],
+    "nivel": null,
+    "faixa_pp": null,
+    "link": "https://www.google.com/travel/flights?hl=pt-BR&gl=br&curr=BRL&tfs=CBwQAhoeEgoyMDI3LTA3LTI1agcIARIDQlNCcgcIARIDUFVKGiISCjIwMjctMDctMzBAEUgXagcIARIDUFVKcgcIARIDQlNCQAFAAUABQAFAAUABSAFwAZgBAQ&tfu=EgIIAQ"
+   }
+  }
  }
 ]
